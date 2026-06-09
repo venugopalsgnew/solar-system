@@ -1,0 +1,22 @@
+name: Solar System Workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  unit-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup node JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Install Dependencies
+        run: npm install --no-audit
