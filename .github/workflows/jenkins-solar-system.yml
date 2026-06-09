@@ -2,10 +2,8 @@ name: Solar System Workflow
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - branch-b
+  workflow_dispatch: 
 jobs:
   unit-testing:
     runs-on: { { matrix.os_version } }
@@ -18,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup node JS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: { { matrix.nodejs_versions } }
 
